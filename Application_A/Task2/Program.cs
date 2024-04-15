@@ -8,7 +8,7 @@ namespace Task2
 {
 	internal class Program
 	{
-		tatic void Main(string[] args)
+		static void Main(string[] args)
 		{
 			Console.Write("Введите четырехзначное число: ");
 			int number = int.Parse(Console.ReadLine());
