@@ -8,23 +8,47 @@ namespace task1
 {
 	public class Apartment
 	{
-		public string Name { get; set; }
-		public double CostPerSquareMeter { get; set; }
-		public double Area { get; set; }
+		private string name;
+		private double costPerSquareMeter;
+		private double area;
 
-		public double TotalCost()
+		public Apartment(string name, double costPerSquareMeter, double area)
 		{
-			return CostPerSquareMeter * Area;
+			this.name = name;
+			this.costPerSquareMeter = costPerSquareMeter;
+			this.area = area;
+		}
+
+		public double GetCost()
+		{
+			return costPerSquareMeter * area;
+		}
+
+		public void Display()
+		{
+			Console.WriteLine($"Название: {name}, Стоимость за квадратный метр: {costPerSquareMeter}, Площадь: {area}");
 		}
 	}
 
 	public class CentralApartment : Apartment
 	{
-		public string DistrictName { get; set; }
+		private string districtName;
 
-		public new double TotalCost()
+		public CentralApartment(string name, double costPerSquareMeter, double area, string districtName)
+			: base(name, costPerSquareMeter, area)
 		{
-			return base.TotalCost() * 1.01; 
+			this.districtName = districtName;
+		}
+
+		public new double GetCost()
+		{
+			return base.GetCost() * 1.01;
+		}
+
+		public new void Display()
+		{
+			base.Display();
+			Console.WriteLine($"Район: {districtName}");
 		}
 	}
 
@@ -32,21 +56,13 @@ namespace task1
 	{
 		static void Main(string[] args)
 		{
-			CentralApartment centralApartment = new CentralApartment();
+			Apartment apt = new Apartment("Квартира 1", 1000, 50);
+			apt.Display();
+			Console.WriteLine($"Стоимость: {apt.GetCost()}");
 
-			Console.Write("Введите название квартиры: ");
-			centralApartment.Name = Console.ReadLine();
-
-			Console.Write("Введите стоимость за квадратный метр: ");
-			centralApartment.CostPerSquareMeter = Convert.ToDouble(Console.ReadLine());
-
-			Console.Write("Введите площадь квартиры: ");
-			centralApartment.Area = Convert.ToDouble(Console.ReadLine());
-
-			Console.Write("Введите название района: ");
-			centralApartment.DistrictName = Console.ReadLine();
-
-			Console.WriteLine($"Общая стоимость квартиры {centralApartment.Name}, расположенной в районе {centralApartment.DistrictName}, составляет {centralApartment.TotalCost()}");
+			CentralApartment centralApt = new CentralApartment("Центральная квартира 1", 1000, 50, "Центральный район");
+			centralApt.Display();
+			Console.WriteLine($"Стоимость: {centralApt.GetCost()}");
 			Console.ReadLine();
 		}
 	}
