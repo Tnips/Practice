@@ -17,12 +17,12 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock x:Name="textBlockXMLPathFile" Grid.Row="0" Margin="10"/>
+        <TextBlock x:Name="textBlockXMLPathFile" Grid.Row="0" Margin="10,10,290,10" Grid.ColumnSpan="2"/>
+        <Button x:Name="buttonOpenFile" Content="Открыть" Grid.Column="1" FontSize="16" Margin="266,10,10,10" Click="buttonOpenFile_Click"/>
         <Grid Grid.Row="1" Grid.Column="1" Margin="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="13*"/>
-                <ColumnDefinition Width="265*"/>
-                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="280*"/>
                 <ColumnDefinition Width="20*"/>
                 <ColumnDefinition Width="40*"/>
                 <ColumnDefinition Width="160*"/>
@@ -32,6 +32,18 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+            <TextBlock Text="Найти" Grid.Row="0" FontSize="14" Margin="248,-16,0,66" Grid.RowSpan="2" Grid.ColumnSpan="4" Grid.Column="1" RenderTransformOrigin="0.5,0.5">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="1.08"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBox x:Name="textBoxCountryName" Grid.Row="1" Margin="244,10,10,10" Grid.ColumnSpan="4" Grid.Column="1"/>
+            <Button x:Name="buttonFindCountryName" Content="Найти" Grid.Row="2" FontSize="16" Margin="244,10,10,10" Grid.ColumnSpan="4" Grid.Column="1" Click="buttonFindCountryName_Click"/>
         </Grid>
         <TextBlock x:Name="textBlockXMLFileContent"
                    Grid.Row="1"
@@ -46,55 +58,11 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-        
+            <TextBlock Text="Удаление" FontSize="14" VerticalAlignment="Center" Margin="257,0,0,0"/>
+            <TextBox x:Name="textBoxDeleteCountryName" Margin="257,10,10,10" Grid.Row="1"/>
+            <Button x:Name="buttonDelete" Content="Удалить" FontSize="16" Margin="257,10,10,10" Grid.Row="2" Click="buttonDelete_Click"/>
         </Grid>
-        <TreeView x:Name="treeViewXMLFileContent"
-            Grid.Row="1"
-            Grid.RowSpan="2"
-            Margin="5,5,290,5"
-            ScrollViewer.VerticalScrollBarVisibility="Auto"
-            ScrollViewer.CanContentScroll="True" 
-            ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.ColumnSpan="2"/>
-        <ListBox x:Name="listBoxXMLFileContent"
-            Grid.Row="1"
-            Grid.RowSpan="2"
-            Margin="5,5,290,5"
-            ScrollViewer.VerticalScrollBarVisibility="Auto"
-            ScrollViewer.CanContentScroll="True" 
-            ScrollViewer.HorizontalScrollBarVisibility="Disabled" Grid.ColumnSpan="2"/>
         <Button x:Name="buttonAdd" Content="Добавить" Grid.Row="3" FontSize="16" Margin="10,10,290,10" Grid.ColumnSpan="2" Click="buttonAdd_Click"/>
         <Button x:Name="buttonExit" Content="Выход" Grid.Row="3" Grid.Column="1" FontSize="16" Margin="266,10,10,10" Click="buttonExit_Click"/>
-        <Expander Grid.Column="1" HorizontalAlignment="Left" Height="395" Header="Настройки" Margin="266,-1,0,0" Grid.RowSpan="4" VerticalAlignment="Top" Width="257">
-            <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <StackPanel>
-                <Button x:Name="buttonOpenFile" Content="Открыть" Grid.Column="1" FontSize="16" Margin="0,10,10,10" Click="buttonOpenFile_Click_1"/>
-                <TextBlock Text="Найти" Grid.Row="0" FontSize="14" Margin="0,0,0,7" Grid.RowSpan="2" Grid.ColumnSpan="5" Grid.Column="1" RenderTransformOrigin="0.5,0.5">
-                    <TextBlock.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform/>
-                            <SkewTransform/>
-                            <RotateTransform Angle="1.08"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </TextBlock.RenderTransform>
-                </TextBlock>
-                <TextBox x:Name="textBoxCountryName" Grid.Row="1" Margin="0,0,0,20" Grid.ColumnSpan="5" Grid.Column="1" Grid.RowSpan="2" Height="64"/>
-                <Button x:Name="buttonFindCountryName" Content="Найти" Grid.Row="2" FontSize="16" Margin="0,0,0,10" Grid.ColumnSpan="5" Grid.Column="1" Click="buttonFindCountryName_Click"/>
-                <TextBlock Text="Удаление" FontSize="14" VerticalAlignment="Top" Margin="0,0,0,7" Grid.RowSpan="2"/>
-                <TextBox x:Name="textBoxDeleteCountryName" Margin="0,0,0,20" Grid.Row="1" Grid.RowSpan="2" Height="61"/>
-                <Button x:Name="buttonDelete" Content="Удалить" FontSize="16" Margin="0,0,0,0" Grid.Row="2" Click="buttonDelete_Click"/>
-                <Expander Height="85" Header="Expander" Width="232" Margin="0,5,0,0">
-                    <StackPanel>
-                        <Grid Background="#FFE5E5E5"/>
-                        <RadioButton x:Name="RadioButton1" Content="TextBlock"/>
-                        <RadioButton x:Name="RadioButton2" Content="TreeView"/>
-                        <RadioButton x:Name="RadioButton3" Content="ListBox"/>
-
-                    </StackPanel>
-                </Expander>
-            </StackPanel>
-            </ScrollViewer>
-        </Expander>
-
     </Grid>
 </Window>
