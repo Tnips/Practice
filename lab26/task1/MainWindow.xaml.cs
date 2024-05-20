@@ -81,11 +81,16 @@ namespace task1
 
 		private void PrintBooks(Books books)
 		{
-			textBlockXMLFileContent.Text = "=====Books====="
-				+Environment.NewLine;
-			textBlockXMLFileContent.Text += books?.ToString() ?? "Книга не найдена";
-
+			string content = "=====Books====="
+				+ Environment.NewLine;
+			content += books?.ToString() ?? "Книга не найдена";
+			textBlockXMLFileContent.Text = content;
+			treeViewXMLFileContent.Items.Clear();
+			treeViewXMLFileContent.Items.Add(content);
+			listBoxXMLFileContent.Items.Clear();
+			listBoxXMLFileContent.Items.Add(content);
 		}
+
 		private void PrintBookss(List<Books> bookss)
 		{
 			StringBuilder sb = new StringBuilder();
@@ -97,11 +102,39 @@ namespace task1
 				sb.AppendLine(books.ToString());
 			}
 
-			textBlockXMLFileContent.Text = sb.ToString(); // Заменяем текст в TextBlock на новый
+			string content = sb.ToString();
+
+			textBlockXMLFileContent.Text = content; 
+			treeViewXMLFileContent.Items.Clear();
+			treeViewXMLFileContent.Items.Add(content);
+			listBoxXMLFileContent.Items.Clear();
+			listBoxXMLFileContent.Items.Add(content);
+		}
+		private void RadioButton_Checked(object sender, RoutedEventArgs e)
+		{
+			var radioButton = sender as RadioButton;
+			if (radioButton == null) return;
+
+			textBlockXMLFileContent.Visibility = Visibility.Collapsed;
+			treeViewXMLFileContent.Visibility = Visibility.Collapsed;
+			listBoxXMLFileContent.Visibility = Visibility.Collapsed;
+
+			switch (radioButton.Name)
+			{
+				case "RadioButton1":
+					textBlockXMLFileContent.Visibility = Visibility.Visible;
+					break;
+				case "RadioButton2":
+					treeViewXMLFileContent.Visibility = Visibility.Visible;
+					break;
+				case "RadioButton3":
+					listBoxXMLFileContent.Visibility = Visibility.Visible;
+					break;
+			}
 		}
 
 
-		private void buttonOpenFile_Click(object sender, RoutedEventArgs e)
+		private void buttonOpenFile_Click_1(object sender, RoutedEventArgs e)
 		{
 			var dialog = new OpenFileDialog();
 			dialog.InitialDirectory = Directory.GetParent(AppContext.BaseDirectory)
@@ -119,5 +152,7 @@ namespace task1
 				PrintBookss(_worker.GetAll());
 			}
 		}
+
 	}
+	
 }
