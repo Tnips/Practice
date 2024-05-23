@@ -122,7 +122,7 @@ namespace task1
 				string newPatronymic = txtUpdatePatronymic.Text;
 
 				UpdateTourist(touristIdToUpdate, newSurname, newFirstName, newPatronymic);
-				SelectAllTours(); // обновляем отображение списка туристов после изменения
+				SelectAllTours(); 
 			}
 			else
 			{
