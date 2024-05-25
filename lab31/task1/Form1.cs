@@ -32,7 +32,6 @@ namespace task1
 				SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Tours", connection);
 				DataTable dataTable = new DataTable();
 				adapter.Fill(dataTable);
-				// Assuming you have a DataGridView named dataGridViewTours
 				dataGridView1.DataSource = dataTable;
 			}
 		}
