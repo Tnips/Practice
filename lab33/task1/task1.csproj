@@ -59,6 +59,14 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\InfTurist.cs" />
+    <Compile Include="Models\InfTuristDBContext.cs" />
+    <Compile Include="Models\payment.cs" />
+    <Compile Include="Models\paymentDBContext.cs" />
+    <Compile Include="Models\Travelpackages.cs" />
+    <Compile Include="Models\TravelpackagesDBContext.cs" />
+    <Compile Include="Models\Turist.cs" />
+    <Compile Include="Models\TuristyDBContext.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -101,9 +109,10 @@
     <Content Include="DatabaseTurist.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Data\DatabaseTurist.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
