@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Configuration;
 
 namespace task1
 {
@@ -17,6 +17,7 @@ namespace task1
 		private DataSet dataSet;
 		private BindingSource bindingSource1;
 		private BindingSource bindingSource2;
+
 		public Form1()
 		{
 			InitializeComponent();
@@ -63,7 +64,7 @@ namespace task1
 			BindTextBox(textBox3, bindingSource1, "Отчество");
 		}
 
-		private void BindTextBox(TextBox textBox, BindingSource bindingSource, string dataMember)
+		private void BindTextBox(System.Windows.Forms.TextBox textBox, BindingSource bindingSource, string dataMember)
 		{
 			textBox.DataBindings.Clear();
 			textBox.DataBindings.Add("Text", bindingSource, dataMember);
@@ -71,7 +72,14 @@ namespace task1
 
 		private void dataGridView1_SelectionChanged(object sender, EventArgs e)
 		{
-
+			if (dataGridView1.CurrentRow != null)
+			{
+				var row = ((DataRowView)dataGridView1.CurrentRow.DataBoundItem).Row;
+				if (row != null)
+				{
+					UpdateTextBoxes(row);
+				}
+			}
 		}
 
 		private void UpdateTextBoxes(DataRow row)
@@ -79,6 +87,14 @@ namespace task1
 			textBox1.Text = row["Фамилия"].ToString();
 			textBox2.Text = row["Имя"].ToString();
 			textBox3.Text = row["Отчество"].ToString();
+		}
+
+		private void Form1_Load(object sender, EventArgs e)
+		{
+			// TODO: данная строка кода позволяет загрузить данные в таблицу "databaseTuristDataSet.Информация_о_туристах". При необходимости она может быть перемещена или удалена.
+			this.информация_о_туристахTableAdapter.Fill(this.databaseTuristDataSet.Информация_о_туристах);
+			// TODO: данная строка кода позволяет загрузить данные в таблицу "databaseTuristDataSet.Туристы". При необходимости она может быть перемещена или удалена.
+			this.туристыTableAdapter.Fill(this.databaseTuristDataSet.Туристы);
 		}
 	}
 }

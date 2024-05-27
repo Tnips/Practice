@@ -47,29 +47,47 @@
 			this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.dataGridView2 = new System.Windows.Forms.DataGridView();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.databaseTuristDataSet = new task1.DatabaseTuristDataSet();
+			this.туристыBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.туристыTableAdapter = new task1.DatabaseTuristDataSetTableAdapters.ТуристыTableAdapter();
+			this.кодТуристаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.фамилияDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.имяDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.отчествоDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.туристыИнформацияОТуристахBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.информация_о_туристахTableAdapter = new task1.DatabaseTuristDataSetTableAdapters.Информация_о_туристахTableAdapter();
+			this.кодТуристаDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.серияПаспортаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.городDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.странаDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.телефонDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.индексDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
 			this.bindingNavigator1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.databaseTuristDataSet)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.туристыBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.туристыИнформацияОТуристахBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// textBox3
 			// 
-			this.textBox3.Location = new System.Drawing.Point(534, 155);
+			this.textBox3.Location = new System.Drawing.Point(651, 181);
 			this.textBox3.Name = "textBox3";
 			this.textBox3.Size = new System.Drawing.Size(321, 22);
 			this.textBox3.TabIndex = 11;
 			// 
 			// textBox2
 			// 
-			this.textBox2.Location = new System.Drawing.Point(534, 98);
+			this.textBox2.Location = new System.Drawing.Point(651, 124);
 			this.textBox2.Name = "textBox2";
 			this.textBox2.Size = new System.Drawing.Size(321, 22);
 			this.textBox2.TabIndex = 10;
 			// 
 			// textBox1
 			// 
-			this.textBox1.Location = new System.Drawing.Point(534, 46);
+			this.textBox1.Location = new System.Drawing.Point(651, 72);
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(321, 22);
 			this.textBox1.TabIndex = 9;
@@ -191,7 +209,16 @@
 			// 
 			// dataGridView2
 			// 
+			this.dataGridView2.AutoGenerateColumns = false;
 			this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.кодТуристаDataGridViewTextBoxColumn1,
+            this.серияПаспортаDataGridViewTextBoxColumn,
+            this.городDataGridViewTextBoxColumn,
+            this.странаDataGridViewTextBoxColumn,
+            this.телефонDataGridViewTextBoxColumn,
+            this.индексDataGridViewTextBoxColumn});
+			this.dataGridView2.DataSource = this.туристыИнформацияОТуристахBindingSource;
 			this.dataGridView2.Location = new System.Drawing.Point(-28, 269);
 			this.dataGridView2.Name = "dataGridView2";
 			this.dataGridView2.RowHeadersWidth = 82;
@@ -201,13 +228,123 @@
 			// 
 			// dataGridView1
 			// 
+			this.dataGridView1.AutoGenerateColumns = false;
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.кодТуристаDataGridViewTextBoxColumn,
+            this.фамилияDataGridViewTextBoxColumn,
+            this.имяDataGridViewTextBoxColumn,
+            this.отчествоDataGridViewTextBoxColumn});
+			this.dataGridView1.DataSource = this.туристыBindingSource;
 			this.dataGridView1.Location = new System.Drawing.Point(-28, 46);
 			this.dataGridView1.Name = "dataGridView1";
 			this.dataGridView1.RowHeadersWidth = 82;
 			this.dataGridView1.RowTemplate.Height = 33;
-			this.dataGridView1.Size = new System.Drawing.Size(525, 196);
+			this.dataGridView1.Size = new System.Drawing.Size(673, 196);
 			this.dataGridView1.TabIndex = 6;
+			// 
+			// databaseTuristDataSet
+			// 
+			this.databaseTuristDataSet.DataSetName = "DatabaseTuristDataSet";
+			this.databaseTuristDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+			// 
+			// туристыBindingSource
+			// 
+			this.туристыBindingSource.DataMember = "Туристы";
+			this.туристыBindingSource.DataSource = this.databaseTuristDataSet;
+			// 
+			// туристыTableAdapter
+			// 
+			this.туристыTableAdapter.ClearBeforeFill = true;
+			// 
+			// кодТуристаDataGridViewTextBoxColumn
+			// 
+			this.кодТуристаDataGridViewTextBoxColumn.DataPropertyName = "Код туриста";
+			this.кодТуристаDataGridViewTextBoxColumn.HeaderText = "Код туриста";
+			this.кодТуристаDataGridViewTextBoxColumn.MinimumWidth = 6;
+			this.кодТуристаDataGridViewTextBoxColumn.Name = "кодТуристаDataGridViewTextBoxColumn";
+			this.кодТуристаDataGridViewTextBoxColumn.Width = 125;
+			// 
+			// фамилияDataGridViewTextBoxColumn
+			// 
+			this.фамилияDataGridViewTextBoxColumn.DataPropertyName = "Фамилия";
+			this.фамилияDataGridViewTextBoxColumn.HeaderText = "Фамилия";
+			this.фамилияDataGridViewTextBoxColumn.MinimumWidth = 6;
+			this.фамилияDataGridViewTextBoxColumn.Name = "фамилияDataGridViewTextBoxColumn";
+			this.фамилияDataGridViewTextBoxColumn.Width = 125;
+			// 
+			// имяDataGridViewTextBoxColumn
+			// 
+			this.имяDataGridViewTextBoxColumn.DataPropertyName = "Имя";
+			this.имяDataGridViewTextBoxColumn.HeaderText = "Имя";
+			this.имяDataGridViewTextBoxColumn.MinimumWidth = 6;
+			this.имяDataGridViewTextBoxColumn.Name = "имяDataGridViewTextBoxColumn";
+			this.имяDataGridViewTextBoxColumn.Width = 125;
+			// 
+			// отчествоDataGridViewTextBoxColumn
+			// 
+			this.отчествоDataGridViewTextBoxColumn.DataPropertyName = "Отчество";
+			this.отчествоDataGridViewTextBoxColumn.HeaderText = "Отчество";
+			this.отчествоDataGridViewTextBoxColumn.MinimumWidth = 6;
+			this.отчествоDataGridViewTextBoxColumn.Name = "отчествоDataGridViewTextBoxColumn";
+			this.отчествоDataGridViewTextBoxColumn.Width = 125;
+			// 
+			// туристыИнформацияОТуристахBindingSource
+			// 
+			this.туристыИнформацияОТуристахBindingSource.DataMember = "ТуристыИнформация о туристах";
+			this.туристыИнформацияОТуристахBindingSource.DataSource = this.туристыBindingSource;
+			// 
+			// информация_о_туристахTableAdapter
+			// 
+			this.информация_о_туристахTableAdapter.ClearBeforeFill = true;
+			// 
+			// кодТуристаDataGridViewTextBoxColumn1
+			// 
+			this.кодТуристаDataGridViewTextBoxColumn1.DataPropertyName = "Код туриста";
+			this.кодТуристаDataGridViewTextBoxColumn1.HeaderText = "Код туриста";
+			this.кодТуристаDataGridViewTextBoxColumn1.MinimumWidth = 6;
+			this.кодТуристаDataGridViewTextBoxColumn1.Name = "кодТуристаDataGridViewTextBoxColumn1";
+			this.кодТуристаDataGridViewTextBoxColumn1.Width = 125;
+			// 
+			// серияПаспортаDataGridViewTextBoxColumn
+			// 
+			this.серияПаспортаDataGridViewTextBoxColumn.DataPropertyName = "Серия паспорта";
+			this.серияПаспортаDataGridViewTextBoxColumn.HeaderText = "Серия паспорта";
+			this.серияПаспортаDataGridViewTextBoxColumn.MinimumWidth = 6;
+			this.серияПаспортаDataGridViewTextBoxColumn.Name = "серияПаспортаDataGridViewTextBoxColumn";
+			this.серияПаспортаDataGridViewTextBoxColumn.Width = 125;
+			// 
+			// городDataGridViewTextBoxColumn
+			// 
+			this.городDataGridViewTextBoxColumn.DataPropertyName = "Город";
+			this.городDataGridViewTextBoxColumn.HeaderText = "Город";
+			this.городDataGridViewTextBoxColumn.MinimumWidth = 6;
+			this.городDataGridViewTextBoxColumn.Name = "городDataGridViewTextBoxColumn";
+			this.городDataGridViewTextBoxColumn.Width = 125;
+			// 
+			// странаDataGridViewTextBoxColumn
+			// 
+			this.странаDataGridViewTextBoxColumn.DataPropertyName = "Страна";
+			this.странаDataGridViewTextBoxColumn.HeaderText = "Страна";
+			this.странаDataGridViewTextBoxColumn.MinimumWidth = 6;
+			this.странаDataGridViewTextBoxColumn.Name = "странаDataGridViewTextBoxColumn";
+			this.странаDataGridViewTextBoxColumn.Width = 125;
+			// 
+			// телефонDataGridViewTextBoxColumn
+			// 
+			this.телефонDataGridViewTextBoxColumn.DataPropertyName = "Телефон";
+			this.телефонDataGridViewTextBoxColumn.HeaderText = "Телефон";
+			this.телефонDataGridViewTextBoxColumn.MinimumWidth = 6;
+			this.телефонDataGridViewTextBoxColumn.Name = "телефонDataGridViewTextBoxColumn";
+			this.телефонDataGridViewTextBoxColumn.Width = 125;
+			// 
+			// индексDataGridViewTextBoxColumn
+			// 
+			this.индексDataGridViewTextBoxColumn.DataPropertyName = "Индекс";
+			this.индексDataGridViewTextBoxColumn.HeaderText = "Индекс";
+			this.индексDataGridViewTextBoxColumn.MinimumWidth = 6;
+			this.индексDataGridViewTextBoxColumn.Name = "индексDataGridViewTextBoxColumn";
+			this.индексDataGridViewTextBoxColumn.Width = 125;
 			// 
 			// Form1
 			// 
@@ -222,11 +359,15 @@
 			this.Controls.Add(this.dataGridView1);
 			this.Name = "Form1";
 			this.Text = "Form1";
+			this.Load += new System.EventHandler(this.Form1_Load);
 			((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
 			this.bindingNavigator1.ResumeLayout(false);
 			this.bindingNavigator1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.databaseTuristDataSet)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.туристыBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.туристыИнформацияОТуристахBindingSource)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -251,6 +392,21 @@
 		private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
 		private System.Windows.Forms.DataGridView dataGridView2;
 		private System.Windows.Forms.DataGridView dataGridView1;
+		private DatabaseTuristDataSet databaseTuristDataSet;
+		private System.Windows.Forms.BindingSource туристыBindingSource;
+		private DatabaseTuristDataSetTableAdapters.ТуристыTableAdapter туристыTableAdapter;
+		private System.Windows.Forms.DataGridViewTextBoxColumn кодТуристаDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn фамилияDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn имяDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn отчествоDataGridViewTextBoxColumn;
+		private System.Windows.Forms.BindingSource туристыИнформацияОТуристахBindingSource;
+		private DatabaseTuristDataSetTableAdapters.Информация_о_туристахTableAdapter информация_о_туристахTableAdapter;
+		private System.Windows.Forms.DataGridViewTextBoxColumn кодТуристаDataGridViewTextBoxColumn1;
+		private System.Windows.Forms.DataGridViewTextBoxColumn серияПаспортаDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn городDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn странаDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn телефонDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn индексDataGridViewTextBoxColumn;
 	}
 }
 
